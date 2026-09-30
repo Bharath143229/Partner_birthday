@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>For My Partner ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MUSIC
+     ===================================================== -->
+
+<audio
+    id="birthdayMusic"
+    loop
+>
+
+    <source
+        src="music/birthday-song.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<button
+    id="musicButton"
+    class="music-button"
+    onclick="toggleMusic()"
+>
+    🎵 Music
+</button>
+
+
+
+<!-- =====================================================
+     OPENING
+     ===================================================== -->
+
+<section
+    id="opening"
+    class="screen active"
+>
+
+    <div id="opening-heart">
+        ❤️
+    </div>
+
+    <h1>
+        Hey Partner...
+    </h1>
+
+    <p>
+        I made something<br>
+        especially for you.
+    </p>
+
+    <button
+        onclick="showScreen('passwordScreen')"
+    >
+        Open Your Surprise 🎁
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     PASSWORD
+     ===================================================== -->
+
+<section
+    id="passwordScreen"
+    class="screen"
+>
+
+    <div class="lock">
+        🔐
+    </div>
+
+    <h1>
+        A Little Secret
+    </h1>
+
+    <p>
+        Before you continue...
+    </p>
+
+    <p class="hint">
+        What do I always call you? 👀
+    </p>
+
+    <input
+        id="passwordInput"
+        type="text"
+        placeholder="Enter password"
+        autocomplete="off"
+    >
+
+    <button
+        onclick="checkPassword()"
+    >
+        Unlock ❤️
+    </button>
+
+    <p id="passwordError"></p>
+
+</section>
+
+
+
+<!-- =====================================================
+     COUNTDOWN
+     ===================================================== -->
+
+<section
+    id="countdownScreen"
+    class="screen"
+>
+
+    <div class="sparkle">
+        ✨
+    </div>
+
+    <h1>
+        Something is Coming...
+    </h1>
+
+    <p>
+        Your special day is getting closer.
+    </p>
+
+    <div id="countdown">
+
+        <div>
+            <span id="days">00</span>
+            <small>Days</small>
+        </div>
+
+        <div>
+            <span id="hours">00</span>
+            <small>Hours</small>
+        </div>
+
+        <div>
+            <span id="minutes">00</span>
+            <small>Minutes</small>
+        </div>
+
+        <div>
+            <span id="seconds">00</span>
+            <small>Seconds</small>
+        </div>
+
+    </div>
+
+    <button
+        onclick="showScreen('memoriesScreen'); startMusic();"
+    >
+        Continue ✨
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     MEMORIES
+     ===================================================== -->
+
+<section
+    id="memoriesScreen"
+    class="screen memory-screen"
+>
+
+    <h1>
+        Her Little Memories ❤️
+    </h1>
+
+    <p class="section-subtitle">
+        A few beautiful moments of you...
+    </p>
+
+    <div
+        class="memory-slideshow"
+        aria-live="polite"
+    >
+
+        <div class="memory-photo-wrap">
+
+            <img
+                id="memoryImage"
+                src="photos/photo01.jpg"
+                alt="Prasanna memory 1"
+            >
+
+        </div>
+
+        <div class="memory-quote-wrap">
+
+            <p
+                id="memoryQuote"
+                class="memory-quote"
+            >
+                Some smiles are impossible to forget. ❤️
+            </p>
+
+        </div>
+
+        <div class="memory-progress-row">
+
+            <span id="memoryNumber">
+                01
+            </span>
+
+            <div class="memory-progress-track">
+
+                <div id="memoryProgress"></div>
+
+            </div>
+
+            <span>
+                10
+            </span>
+
+        </div>
+
+    </div>
+
+    <button
+        id="nextMemoryButton"
+        type="button"
+    >
+        Next Memory →
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     BIRTHDAY CAKE
+     ===================================================== -->
+
+<section
+    id="cakeScreen"
+    class="screen cake-screen"
+>
+
+
+    <h1>
+        A Birthday Cake For You 🎂
+    </h1>
+
+
+    <p
+        id="cakeInstruction"
+        class="cake-instruction"
+    >
+        22 candles for your 22nd birthday ✨
+    </p>
+
+
+
+    <!-- ================= CAKE STAGE ================= -->
+
+    <div
+        class="cake-stage"
+        id="cakeStage"
+        aria-label="Animated birthday cake"
+    >
+
+
+        <!-- Glow -->
+
+        <div class="cake-glow"></div>
+
+
+        <!-- Plate -->
+
+        <div class="cake-plate"></div>
+
+
+        <!-- 22 candles are created by JavaScript -->
+
+        <div
+            class="candle-holder"
+            id="candleHolder"
+        ></div>
+
+
+
+        <!-- ================= CAKE ================= -->
+
+        <div
+            class="birthday-cake"
+            id="birthdayCake"
+        >
+
+
+            <!-- ================= LEFT HALF ================= -->
+
+            <div
+                class="cake-half cake-left"
+                id="cakeLeft"
+            >
+
+
+                <!-- Top -->
+
+                <div class="cake-top">
+
+                    <div class="cake-frosting"></div>
+
+                    <div class="cake-cream cream-1"></div>
+
+                    <div class="cake-cream cream-2"></div>
+
+                    <div class="cake-cream cream-3"></div>
+
+                </div>
+
+
+                <!-- Middle -->
+
+                <div class="cake-middle">
+
+                    <div class="cake-layer-top"></div>
+
+                    <div class="cake-layer-body"></div>
+
+                    <div class="cake-layer-cream"></div>
+
+                </div>
+
+
+                <!-- Bottom -->
+
+                <div class="cake-bottom">
+
+                    <div class="cake-layer-top"></div>
+
+                    <div class="cake-layer-body"></div>
+
+                    <div class="cake-layer-cream"></div>
+
+                </div>
+
+
+                <!-- Drips -->
+
+                <div class="cake-drips">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= RIGHT HALF ================= -->
+
+            <div
+                class="cake-half cake-right"
+                id="cakeRight"
+            >
+
+
+                <!-- Top -->
+
+                <div class="cake-top">
+
+                    <div class="cake-frosting"></div>
+
+                    <div class="cake-cream cream-1"></div>
+
+                    <div class="cake-cream cream-2"></div>
+
+                    <div class="cake-cream cream-3"></div>
+
+                </div>
+
+
+                <!-- Middle -->
+
+                <div class="cake-middle">
+
+                    <div class="cake-layer-top"></div>
+
+                    <div class="cake-layer-body"></div>
+
+                    <div class="cake-layer-cream"></div>
+
+                </div>
+
+
+                <!-- Bottom -->
+
+                <div class="cake-bottom">
+
+                    <div class="cake-layer-top"></div>
+
+                    <div class="cake-layer-body"></div>
+
+                    <div class="cake-layer-cream"></div>
+
+                </div>
+
+
+                <!-- Drips -->
+
+                <div class="cake-drips">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= AGE ================= -->
+
+            <div class="cake-number">
+                22
+            </div>
+
+
+
+            <!-- ================= CUT LINE ================= -->
+
+            <div
+                class="cake-cut-line"
+                id="cakeCutLine"
+            ></div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         SPARKLES
+         ================================================= -->
+
+    <div
+        id="cakeSparkles"
+        class="cake-sparkles"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- =================================================
+         CAKE BUTTONS
+         ================================================= -->
+
+    <div class="cake-actions">
+
+
+        <!-- Step 1 -->
+
+        <button
+            id="wishBlowButton"
+            type="button"
+            onclick="blowCandles()"
+        >
+            Make a Wish & Blow 💨✨
+        </button>
+
+
+        <!-- Step 2 -->
+
+        <button
+            id="cutCakeButton"
+            class="hidden-cake-button"
+            type="button"
+            onclick="cutCake()"
+        >
+            Cut the Cake 🔪🎂
+        </button>
+
+
+        <!-- Step 3 -->
+
+        <button
+            id="cakeContinueButton"
+            class="hidden-cake-button"
+            type="button"
+            onclick="showScreen('letterScreen')"
+        >
+            Continue ❤️
+        </button>
+
+
+    </div>
+
+
+    <!-- Status -->
+
+    <p
+        id="cakeStatus"
+        class="cake-status"
+        aria-live="polite"
+    ></p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     LETTER
+     ===================================================== -->
+
+<section
+    id="letterScreen"
+    class="screen scroll-screen"
+>
+
+
+    <div class="letter">
+
+
+        <div class="letter-title">
+            Dear Partner,
+        </div>
+
+
+        <p>
+            Happy Birthday, Prasanna. ❤️🎂
+        </p>
+
+
+        <p>
+            I honestly don't know how to put everything I feel into words,
+            but on your special day, I still wanted to try and write
+            something from my heart.
+        </p>
+
+
+        <p>
+            We've known each other since our school days,
+            and somehow, even after all these years,
+            you're still someone very special to me.
+        </p>
+
+
+        <p>
+            Life changed, time passed,
+            and we ended up far away from those school days…
+            but some connections don't disappear
+            just because time passes.
+        </p>
+
+
+        <p>
+            We've shared so many conversations, memories, laughs,
+            and little moments over the years.
+            Even though we still haven't been able to meet after all this time,
+            I'm genuinely grateful that you're still a part of my life.
+        </p>
+
+
+        <p>
+            I've always wanted to hear your voice,
+            have a real conversation with you,
+            and finally meet you after all these years.
+            I really hope that day comes soon. ❤️
+        </p>
+
+
+        <p>
+            I don't know what the future holds,
+            but I hope we continue to create more beautiful memories,
+            have more conversations,
+            and finally get that chance to meet someday.
+        </p>
+
+
+        <p>
+            I hope this new year of your life brings you countless reasons
+            to smile, beautiful memories, good health, success,
+            and everything you've been wishing for.
+        </p>
+
+
+        <p>
+            Stay the same wonderful person you are.
+        </p>
+
+
+        <p>
+            Happy Birthday once again, Partner. ❤️🎂
+        </p>
+
+
+        <div class="signature">
+            — From your Partner ❤️
+        </div>
+
+
+    </div>
+
+
+    <button
+        onclick="showScreen('wishScreen')"
+    >
+        One Last Thing... ✨
+    </button>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     WISH
+     ===================================================== -->
+
+<section
+    id="wishScreen"
+    class="screen"
+>
+
+
+    <div class="wish-icon">
+        🕯️
+    </div>
+
+
+    <h1>
+        Make a Wish
+    </h1>
+
+
+    <p>
+        Close your eyes for a moment...
+    </p>
+
+
+    <p>
+        Think of something you really want.
+    </p>
+
+
+    <p class="small-text">
+        You can write it here if you want to keep it with this little surprise. ❤️
+    </p>
+
+
+    <textarea
+        id="wishInput"
+        placeholder="Type your wish here..."
+    ></textarea>
+
+
+    <button
+        onclick="makeWish()"
+    >
+        Make My Wish ✨
+    </button>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FIREWORKS
+     ===================================================== -->
+
+<section
+    id="fireworksScreen"
+    class="screen fireworks-screen"
+>
+
+
+    <canvas
+        id="fireworksCanvas"
+    ></canvas>
+
+
+    <div class="fireworks-content">
+
+
+        <div id="wishText"></div>
+
+
+        <div class="cake-final">
+
+            <div class="final-candle">
+
+                <div class="final-flame"></div>
+
+            </div>
+
+            🎂
+
+        </div>
+
+
+        <h1 id="birthdayFinal">
+            Happy Birthday, Prasanna ❤️
+        </h1>
+
+
+        <p>
+            I hope this birthday brings you beautiful memories,
+            countless reasons to smile,
+            and everything you've been wishing for. ❤️
+        </p>
+
+
+        <button
+            id="downloadGreeting"
+            type="button"
+            onclick="downloadGreetingFile()"
+        >
+            💌 Download My Greeting
+        </button>
+
+
+        <p
+            id="downloadStatus"
+            class="download-status"
+            aria-live="polite"
+        ></p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
